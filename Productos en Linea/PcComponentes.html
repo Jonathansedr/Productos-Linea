@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PcComponentes</title>
+    <style>
+        :root {
+            --transition-speed: 0.3s;
+        }
+   body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        ion-card {
+            display: block;
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            background: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        ion-card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333333;
+            margin: 10px 0;
+        }
+        ion-card-subtitle {
+            font-size: 1rem;
+            color: #666666;
+            margin-bottom: 15px;
+        }
+        ion-card-content {
+            font-size: 0.9rem;
+            color: #555555;
+            margin-bottom: 20px;
+        }
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #007bff;
+            border-radius: 100px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform var(--transition-speed), background-color var(--transition-speed);
+        }
+        a:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        a:active {
+            background-color: #003f7f;
+        }
+
+        @keyframes showSuccessMessage {
+    0% { opacity: 0; transform: translateY(-100%); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-100%); }
+}
+
+	.particle {
+			position:absolute;
+			width: 5px;
+			height: 5px;
+			background-color: #333;
+			border-radius: 50%;
+			opacity: 0.7;
+			animation: floatAnimation linear infinite;
+		}
+
+		/* Generación de múltiples animaciones para las partículas */
+		@keyframes floatAnimation {
+			0% {
+				transform: translateY(0) translateX(0);
+				opacity: 1;
+			}
+			100% {
+				transform: translateY(-1000px) translateX(100px);
+				opacity: 0;
+			}
+		}
+    </style>
+</head>
+<body>
+    <ion-card>
+  <img alt="Silhouette of mountains" src="logo.png" />
+  <ion-card-header>
+    <ion-card-title>PcComponentes</ion-card-title> <br>
+    <ion-card-subtitle>Componentes para pc</ion-card-subtitle> <br>
+  </ion-card-header>
+
+  <ion-card-content>
+    Los mejores componentes precio/calidad para su pc 
+  </ion-card-content>
+<br> <br>
+<a href="Productos.html">Ver Productos</a>
+</ion-card>
+
+<script>
+    // Función para generar partículas
+    function generateParticles() {
+        for (let i = 0; i < 100; i++) { // Genera 50 partículas
+            let particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.animationDuration = (Math.random() * 5 + 5) + 's'; // Duración de animación entre 5 y 10 segundos
+            particle.style.left = Math.random() * window.innerWidth + 'px'; // Posición horizontal aleatoria
+            particle.style.top = Math.random() * window.innerHeight + 'px'; // Posición vertical aleatoria
+            particle.style.animationName = 'floatAnimation';
+            document.body.appendChild(particle);
+        }
+    }
+
+    // Llama a la función al cargar la página
+    window.onload = generateParticles;
+</script>
+
+</body>
+</html>
